@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0851221B09CE5800867910 /* NSDictionary+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0851211B09CE5800867910 /* NSDictionary+Keychain.m */; };
 		4FCD1D721B05BE60005E027B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD1D711B05BE60005E027B /* main.m */; };
 		4FCD1D751B05BE60005E027B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD1D741B05BE60005E027B /* AppDelegate.m */; };
 		4FCD1D781B05BE60005E027B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD1D771B05BE60005E027B /* FirstViewController.m */; };
@@ -28,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F0851201B09CE5800867910 /* NSDictionary+Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Keychain.h"; sourceTree = "<group>"; };
+		4F0851211B09CE5800867910 /* NSDictionary+Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Keychain.m"; sourceTree = "<group>"; };
+		4F0851231B09DE9900867910 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		4FCD1D6C1B05BE60005E027B /* SampleLoginSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleLoginSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCD1D701B05BE60005E027B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FCD1D711B05BE60005E027B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +67,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F08511B1B09CD6300867910 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				4F0851201B09CE5800867910 /* NSDictionary+Keychain.h */,
+				4F0851211B09CE5800867910 /* NSDictionary+Keychain.m */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
+		4F08511C1B09CD6900867910 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				4F0851231B09DE9900867910 /* Common.h */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		4FCD1D631B05BE60005E027B = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +105,8 @@
 		4FCD1D6E1B05BE60005E027B /* SampleLoginSaver */ = {
 			isa = PBXGroup;
 			children = (
+				4F08511C1B09CD6900867910 /* Core Data */,
+				4F08511B1B09CD6300867910 /* Keychain */,
 				4FCD1D731B05BE60005E027B /* AppDelegate.h */,
 				4FCD1D741B05BE60005E027B /* AppDelegate.m */,
 				4FCD1D761B05BE60005E027B /* FirstViewController.h */,
@@ -228,6 +251,7 @@
 				4FCD1D751B05BE60005E027B /* AppDelegate.m in Sources */,
 				4FCD1D781B05BE60005E027B /* FirstViewController.m in Sources */,
 				4FCD1D721B05BE60005E027B /* main.m in Sources */,
+				4F0851221B09CE5800867910 /* NSDictionary+Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SampleLoginSaver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SampleLoginSaver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -418,6 +444,7 @@
 				4FCD1D941B05BE61005E027B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FCD1D951B05BE61005E027B /* Build configuration list for PBXNativeTarget "SampleLoginSaverTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +453,7 @@
 				4FCD1D971B05BE61005E027B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

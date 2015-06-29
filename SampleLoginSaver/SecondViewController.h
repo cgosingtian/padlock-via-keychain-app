@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSDictionary+Keychain.h"
+#import "Common.h"
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController<UITextViewDelegate>
 
+- (IBAction)dismissKeyboardOnTap:(id)sender;
 
 @end
 

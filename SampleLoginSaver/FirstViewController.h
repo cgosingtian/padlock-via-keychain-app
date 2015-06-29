@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSDictionary+Keychain.h"
+#import "Common.h"
 
 @interface FirstViewController : UIViewController
 
