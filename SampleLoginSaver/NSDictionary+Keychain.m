@@ -170,25 +170,14 @@
 - (BOOL)deleteFromKeychainWithKey:(NSString *)keychainItemID
 {
     NSDictionary *searchDictionary = [NSDictionary dictionaryForSearchWithKey:keychainItemID];
-
-    CFTypeRef itemResult = NULL;
-    OSStatus osStatus = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &itemResult);
     
-    NSLog(@"[DEBUG] itemresult for deletion: %@",itemResult);
+    OSStatus osStatus = SecItemDelete((__bridge CFDictionaryRef)searchDictionary);
 
     if(osStatus == noErr) {
-        // If there is something to delete...
-        osStatus = SecItemDelete((__bridge CFDictionaryRef)searchDictionary);
-        
-        if(osStatus != noErr) {
-            NSLog(@"NSDictionary+Keychain: Failed to delete ID %@, dictionary: %@ with delete query: %@", keychainItemID, self, searchDictionary);
-        }
-            
         NSLog(@"NSDictionary+Keychain: SUCCESS; Deleted dictionary from keychain with key %@ and delete query %@", keychainItemID, searchDictionary);
         return YES;
     } else {
-        // error
-        NSLog(@"NSDictionary+Keychain: Failed to load ID %@ for deletion. Error: %ld", keychainItemID, (long)osStatus);
+        NSLog(@"NSDictionary+Keychain: Failed to delete ID %@, dictionary: %@ with delete query: %@", keychainItemID, self, searchDictionary);
     }
     
     NSLog(@"NSDictionary+Keychain: No item to delete for item ID: %@.", keychainItemID);
