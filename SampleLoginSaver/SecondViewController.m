@@ -12,88 +12,101 @@
 @property (weak, nonatomic) IBOutlet UILabel *keychainStatusLabel;
 @property (weak, nonatomic) IBOutlet UITextView *keychainTextBox;
 
-@property (assign, nonatomic) BOOL isKeychainExisting;
-
 @end
 
 @implementation SecondViewController
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     [self updateKeychainStatus];
 }
 
+#pragma mark - Keychain Status Checking
+
 - (void)updateKeychainStatus {
     if ([self isKeychainPasswordExisting]) {
         self.keychainStatusLabel.text = kStatusExisting;
-        _isKeychainExisting = YES;
     } else {
         self.keychainStatusLabel.text = kStatusAwaiting;
-        _isKeychainExisting = NO;
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Keyboard Handling
 
 - (IBAction)dismissKeyboardOnTap:(id)sender
 {
     [[self view] endEditing:YES];
 }
 
+#pragma mark - Button Functionalities
+
+- (IBAction)deleteKeychainPassword:(id)sender {
+    NSDictionary *existingDictionary = [NSDictionary dictionaryFromKeychainWithKey:kKeychainKey];
+    
+    if (existingDictionary) {
+        if ([existingDictionary deleteFromKeychainWithKey:kKeychainKey]) {
+            self.keychainStatusLabel.text = kStatusDeleted;
+        
+            self.keychainTextBox.text = @"";
+        } else {
+            self.keychainStatusLabel.text = @"Delete failed.";
+        }
+    } else {
+        self.keychainStatusLabel.text = @"Nothing to delete.";
+    }
+}
+
 - (IBAction)submitKeychainPassword:(id)sender {
     
-    if (_isKeychainExisting) {
-        NSLog(@"KEYCHAIN EXISTING"); //DEBUG
-        BOOL samePasswordInput = NO;
-        
+    // If you input the same password, delete it
+    if ([self isKeychainPasswordExisting]) {
         NSString *textInput = self.keychainTextBox.text;
         
         NSDictionary *existingDictionary = [NSDictionary dictionaryFromKeychainWithKey:kKeychainKey];
         NSString *existingPassword = [existingDictionary objectForKey:kKeychainDictionaryKey];
         
-        samePasswordInput = [textInput isEqualToString:existingPassword];
-        NSLog(@"TEXTINPUT: %@ vs EXISTING: %@", textInput, existingPassword); //DEBUG
+        BOOL samePasswordInput = [textInput isEqualToString:existingPassword];
+
         if (samePasswordInput) {
-            NSDictionary *dic = [NSDictionary dictionary];
-            [dic deleteFromKeychainWithKey:kKeychainKey];
+            [existingDictionary deleteFromKeychainWithKey:kKeychainKey];
             
             self.keychainStatusLabel.text = kStatusDeleted;
-            
-            _isKeychainExisting = NO;
             self.keychainTextBox.text = @"";
         } else {
             self.keychainStatusLabel.text = kStatusFailedExisting;
         }
-        NSLog(@"RETURNING"); //DEBUG
+
         return;
     }
     
-    NSString *keychainKey = kKeychainKey;
-    NSDictionary *keychainDictionary = [NSDictionary dictionaryWithObjectsAndKeys:self.keychainTextBox.text, kKeychainDictionaryKey, nil];
-    [keychainDictionary saveToKeychainWithKey:keychainKey];
+    // Save the password if there's no previous entry
+    [self saveToKeychainWithKey:kKeychainKey passwordString:self.keychainTextBox.text];
     
-    NSDictionary *keychainTest = [NSDictionary dictionaryFromKeychainWithKey:keychainKey];
-    NSLog(@"Testing password retrieval, retrieved: %@", keychainTest);
+    NSDictionary *keychainTest = [NSDictionary dictionaryFromKeychainWithKey:kKeychainKey];
     
     if (keychainTest) {
         self.keychainStatusLabel.text = kStatusSaved;
-        _isKeychainExisting = YES;
         self.keychainTextBox.text = @"";
     } else {
         self.keychainStatusLabel.text = kStatusFailed;
-        _isKeychainExisting = NO;
     }
+}
+
+#pragma mark - Helper Methods
+
+- (void)saveToKeychainWithKey:(NSString *)keychainItemID passwordString:(NSString *)passwordString {
+    NSMutableDictionary *passwordDictionary = [[NSMutableDictionary alloc] init];
+    [passwordDictionary setObject:passwordString forKey:kKeychainDictionaryKey];
+    [passwordDictionary saveToKeychainWithKey:keychainItemID];
 }
 
 - (BOOL)isKeychainPasswordExisting {
     NSDictionary *keychainDictionary = [NSDictionary dictionaryFromKeychainWithKey:kKeychainKey];
     
-    if (keychainDictionary) {
+    if (keychainDictionary && [keychainDictionary objectForKey:kKeychainDictionaryKey]) {
         return YES;
     } else {
         return NO;

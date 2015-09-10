@@ -206,13 +206,28 @@ Input a key in the Keys screen by tapping on the Keys tab below.</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnk-dN-amV">
+                                        <rect key="frame" x="0.0" y="145" width="193" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="193" id="4bv-nk-osi"/>
+                                            <constraint firstAttribute="height" constant="30" id="sMi-MK-czG"/>
+                                        </constraints>
+                                        <state key="normal" title="Delete Password"/>
+                                        <connections>
+                                            <action selector="deleteKeychainPassword:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="olN-M3-RbG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Bnk-dN-amV" secondAttribute="trailing" id="5oA-vn-Jdx"/>
+                                    <constraint firstItem="Bnk-dN-amV" firstAttribute="top" secondItem="YQb-27-iwW" secondAttribute="top" constant="145" id="9Fh-kF-hh9"/>
+                                    <constraint firstItem="LRz-Tt-vgX" firstAttribute="top" secondItem="Bnk-dN-amV" secondAttribute="bottom" constant="8" id="DjK-X7-rCx"/>
                                     <constraint firstAttribute="width" constant="216" id="SIT-Gt-xBv"/>
                                     <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="LRz-Tt-vgX" secondAttribute="bottom" priority="999" constant="183" id="VLN-WY-DcZ"/>
                                     <constraint firstAttribute="centerY" secondItem="LRz-Tt-vgX" secondAttribute="centerY" id="Y8H-ip-DZN"/>
                                     <constraint firstAttribute="trailing" secondItem="LRz-Tt-vgX" secondAttribute="trailing" constant="8" id="ZUg-7n-dLp"/>
+                                    <constraint firstItem="Bnk-dN-amV" firstAttribute="leading" secondItem="YQb-27-iwW" secondAttribute="leading" id="cnx-tI-oVS"/>
                                     <constraint firstItem="LRz-Tt-vgX" firstAttribute="leading" secondItem="YQb-27-iwW" secondAttribute="leading" constant="8" id="h4V-l5-egS"/>
                                     <constraint firstItem="LRz-Tt-vgX" firstAttribute="top" relation="lessThanOrEqual" secondItem="YQb-27-iwW" secondAttribute="top" priority="999" constant="183" id="mnO-eD-cRm"/>
                                     <constraint firstAttribute="centerX" secondItem="LRz-Tt-vgX" secondAttribute="centerX" id="vNJ-k9-64k"/>

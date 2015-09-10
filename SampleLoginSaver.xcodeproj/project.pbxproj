@@ -67,21 +67,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F08511B1B09CD6300867910 /* Keychain */ = {
+		4F08511B1B09CD6300867910 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4F98038D1BA121810059DC5C /* NSDictionary */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		4F98038D1BA121810059DC5C /* NSDictionary */ = {
 			isa = PBXGroup;
 			children = (
 				4F0851201B09CE5800867910 /* NSDictionary+Keychain.h */,
 				4F0851211B09CE5800867910 /* NSDictionary+Keychain.m */,
 			);
-			name = Keychain;
+			name = NSDictionary;
 			sourceTree = "<group>";
 		};
-		4F08511C1B09CD6900867910 /* Core Data */ = {
+		4F98038E1BA121950059DC5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4F0851231B09DE9900867910 /* Common.h */,
+				4FCD1D7F1B05BE60005E027B /* Images.xcassets */,
 			);
-			name = "Core Data";
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4F98038F1BA121A50059DC5C /* Doors Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4FCD1D761B05BE60005E027B /* FirstViewController.h */,
+				4FCD1D771B05BE60005E027B /* FirstViewController.m */,
+			);
+			name = "Doors Screen";
+			sourceTree = "<group>";
+		};
+		4F9803901BA121BB0059DC5C /* Keys Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4FCD1D791B05BE60005E027B /* SecondViewController.h */,
+				4FCD1D7A1B05BE60005E027B /* SecondViewController.m */,
+			);
+			name = "Keys Screen";
+			sourceTree = "<group>";
+		};
+		4F9803911BA121D90059DC5C /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4F98038F1BA121A50059DC5C /* Doors Screen */,
+				4F9803901BA121BB0059DC5C /* Keys Screen */,
+				4FCD1D7C1B05BE60005E027B /* Main.storyboard */,
+			);
+			name = "Main Screen";
 			sourceTree = "<group>";
 		};
 		4FCD1D631B05BE60005E027B = {
@@ -105,17 +141,13 @@
 		4FCD1D6E1B05BE60005E027B /* SampleLoginSaver */ = {
 			isa = PBXGroup;
 			children = (
-				4F08511C1B09CD6900867910 /* Core Data */,
-				4F08511B1B09CD6300867910 /* Keychain */,
 				4FCD1D731B05BE60005E027B /* AppDelegate.h */,
 				4FCD1D741B05BE60005E027B /* AppDelegate.m */,
-				4FCD1D761B05BE60005E027B /* FirstViewController.h */,
-				4FCD1D771B05BE60005E027B /* FirstViewController.m */,
-				4FCD1D791B05BE60005E027B /* SecondViewController.h */,
-				4FCD1D7A1B05BE60005E027B /* SecondViewController.m */,
-				4FCD1D7C1B05BE60005E027B /* Main.storyboard */,
-				4FCD1D7F1B05BE60005E027B /* Images.xcassets */,
+				4F08511B1B09CD6300867910 /* Category */,
+				4F0851231B09DE9900867910 /* Common.h */,
 				4FCD1D811B05BE60005E027B /* LaunchScreen.xib */,
+				4F9803911BA121D90059DC5C /* Main Screen */,
+				4F98038E1BA121950059DC5C /* Resources */,
 				4FCD1D6F1B05BE60005E027B /* Supporting Files */,
 			);
 			path = SampleLoginSaver;
@@ -196,6 +228,7 @@
 				TargetAttributes = {
 					4FCD1D6B1B05BE60005E027B = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 59636WNZ2S;
 					};
 					4FCD1D871B05BE60005E027B = {
 						CreatedOnToolsVersion = 6.1;
@@ -310,6 +343,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -351,6 +385,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;

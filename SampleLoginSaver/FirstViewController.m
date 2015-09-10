@@ -16,10 +16,7 @@
 
 @implementation FirstViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+#pragma mark - View Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -27,15 +24,12 @@
     [self updateDoorStatus];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Door Handler Methods
 
 - (BOOL)isKeychainUnlock {
-    if ([NSDictionary dictionaryFromKeychainWithKey:kKeychainKey]) {
+    NSDictionary *existingDictionary = [NSDictionary dictionaryFromKeychainWithKey:kKeychainKey];
+    
+    if (existingDictionary && [existingDictionary objectForKey:kKeychainDictionaryKey]) {
         return YES;
     }
     
