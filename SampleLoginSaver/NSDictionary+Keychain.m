@@ -11,6 +11,8 @@
 
 @implementation NSDictionary (Keychain)
 
+#pragma mark - Keychain Search Query Creation
+
 + (NSMutableDictionary *)dictionaryForSearchWithKey:(NSString *)keychainItemID
 {
     NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];
@@ -30,6 +32,8 @@
     
     return searchDictionary;
 }
+
+#pragma mark - Keychain Retrieval
 
 + (NSDictionary *)dictionaryFromKeychainWithKey:(NSString *)keychainItemID
 {
@@ -68,6 +72,8 @@
     
     return nil;
 }
+
+#pragma mark - Keychain Data-Dictionary Serialization
 
 + (NSDictionary *)dictionaryFromData:(NSData *)data
 {
@@ -109,6 +115,8 @@
     
     return nil;
 }
+
+#pragma mark - Keychain Saving
 
 - (BOOL)saveToKeychainWithKey:(NSString *)keychainItemID
 {
@@ -156,6 +164,8 @@
         return NO;
     }
 }
+
+#pragma mark - Keychain Deletion
 
 - (BOOL)deleteFromKeychainWithKey:(NSString *)keychainItemID
 {
