@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F0851221B09CE5800867910 /* NSDictionary+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0851211B09CE5800867910 /* NSDictionary+Keychain.m */; };
+		4F9803951BA172EC0059DC5C /* KeychainOperationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9803941BA172EC0059DC5C /* KeychainOperationsTests.m */; };
 		4FCD1D721B05BE60005E027B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD1D711B05BE60005E027B /* main.m */; };
 		4FCD1D751B05BE60005E027B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD1D741B05BE60005E027B /* AppDelegate.m */; };
 		4FCD1D781B05BE60005E027B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD1D771B05BE60005E027B /* FirstViewController.m */; };
@@ -32,6 +33,7 @@
 		4F0851201B09CE5800867910 /* NSDictionary+Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Keychain.h"; sourceTree = "<group>"; };
 		4F0851211B09CE5800867910 /* NSDictionary+Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Keychain.m"; sourceTree = "<group>"; };
 		4F0851231B09DE9900867910 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		4F9803941BA172EC0059DC5C /* KeychainOperationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainOperationsTests.m; sourceTree = "<group>"; };
 		4FCD1D6C1B05BE60005E027B /* SampleLoginSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleLoginSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCD1D701B05BE60005E027B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FCD1D711B05BE60005E027B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		4FCD1D8B1B05BE60005E027B /* SampleLoginSaverTests */ = {
 			isa = PBXGroup;
 			children = (
+				4F9803941BA172EC0059DC5C /* KeychainOperationsTests.m */,
 				4FCD1D8E1B05BE61005E027B /* SampleLoginSaverTests.m */,
 				4FCD1D8C1B05BE61005E027B /* Supporting Files */,
 			);
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FCD1D8F1B05BE61005E027B /* SampleLoginSaverTests.m in Sources */,
+				4F9803951BA172EC0059DC5C /* KeychainOperationsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -136,10 +136,11 @@
         if(osStatus == errSecSuccess) {
             return YES;
         } else if (osStatus == errSecDuplicateItem) {
+            NSLog(@"NSDictionary+Keychain: [Keychain Saving] Item exists; attempting to update.");
             // If the item already exists, update it instead
             return [NSDictionary updateKeychainData:data forKey:keychainItemID];
         } else {
-            NSLog(@"NSDictionary+Keychain: [%ld] Failed to save dictionary: %@ with storage query: %@", (long)osStatus, self, searchDictionary);
+            NSLog(@"NSDictionary+Keychain: [Keychain Saving][%ld] Failed to save dictionary: %@ with storage query: %@", (long)osStatus, self, searchDictionary);
             return NO;
         }
     }
